@@ -7,8 +7,7 @@ async function bootstrap() {
 
 app.enableCors({
   origin: [
-    'https://thayvang-p2ax.vercel.app', // FE deploy trên Vercel
-    'http://localhost:3000',            // test local
+    'https://thayvang-p2ax.vercel.app'      
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
