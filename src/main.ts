@@ -5,9 +5,11 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule );
 
- app.enableCors({
-  origin:  'https://thayvang-p2ax.vercel.app', // FE deploy trên Vercel
-    'http://localhost:3000',             // để test local,
+app.enableCors({
+  origin: [
+    'https://thayvang-p2ax.vercel.app', // FE deploy trên Vercel
+    'http://localhost:3000',            // test local
+  ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true,
 });
