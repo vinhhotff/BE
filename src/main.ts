@@ -3,16 +3,15 @@ import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule , {
-    cors: false, // 🚫 Tắt cors ở đây
-  });
+  const app = await NestFactory.create(AppModule );
 
-  // // Enable CORS
-  // app.enableCors({
-  //   origin: process.env.FRONTEND_URL || 'http://localhost:3000',
-  //   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  //   credentials: true,
-  // });
+ app.enableCors({
+  origin:  'https://thayvang-p2ax.vercel.app', // FE deploy trên Vercel
+    'http://localhost:3000',             // để test local,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true,
+});
+
 
   // Global validation pipe
   app.useGlobalPipes(
